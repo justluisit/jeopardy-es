@@ -1,14 +1,18 @@
-export function showQuestion(value) {
+export function showQuestion(question) {
 
     const modal = document.getElementById("modal");
 
     document.getElementById("question-value").textContent =
-        value;
+        question.value;
 
     document.getElementById("question-text").textContent =
-        "Aquí aparecerá la pregunta.";
+        question.question;
 
-    document.getElementById("answer-text").style.display = "none";
+    document.getElementById("answer-text").textContent =
+        question.answer;
+
+    document.getElementById("answer-text").style.display =
+        "none";
 
     modal.classList.remove("hidden");
 

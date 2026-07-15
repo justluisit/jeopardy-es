@@ -2,11 +2,13 @@ import { loadQuestions } from "../services/DataService.js";
 import { renderBoard } from "../views/BoardView.js";
 import { GAME_CONFIG } from "../config.js";
 
+let game = null;
+
 export async function startGame(){
 
     try{
 
-        const game = await loadQuestions();
+        game = await loadQuestions();
 
         renderBoard(
             game.categories,
@@ -45,6 +47,30 @@ import {
 
 function handleQuestionSelected(question){
 
-    showQuestion(question.value);
+    const selected = findQuestion(
+        game.categories,
+        question.category,
+        question.value
+    );
+
+    if (selected) {
+
+        showQuestion(selected);
+
+    }
+
+}
+
+function findQuestion(categories, categoryName, value) {
+
+    const category = categories.find(c => c.name === categoryName);
+
+    if (!category) {
+
+        return null;
+
+    }
+
+    return category.questions.find(q => q.value === value);
 
 }

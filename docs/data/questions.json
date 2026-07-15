@@ -9,34 +9,34 @@
       "name": "Mundial de Fútbol",
       "questions": [
         {
-          "id": 101,
-          "value": 100,
-          "question": "",
-          "answer": ""
+        "id": 101,
+        "value": 100,
+        "question": "¿Qué país ganó el Mundial de 2022?",
+        "answer": "Argentina"
         },
         {
-          "id": 102,
-          "value": 200,
-          "question": "",
-          "answer": ""
+        "id": 102,
+        "value": 200,
+        "question": "¿En qué país se jugó el Mundial de 2014?",
+        "answer": "Brasil"
         },
         {
-          "id": 103,
-          "value": 300,
-          "question": "",
-          "answer": ""
+        "id": 103,
+        "value": 300,
+        "question": "¿Cuántos jugadores hay por equipo en el campo?",
+        "answer": "11"
         },
         {
-          "id": 104,
-          "value": 400,
-          "question": "",
-          "answer": ""
+        "id": 104,
+        "value": 400,
+        "question": "¿Qué selección ganó el Mundial de 2010?",
+        "answer": "España"
         },
         {
-          "id": 105,
-          "value": 500,
-          "question": "",
-          "answer": ""
+        "id": 105,
+        "value": 500,
+        "question": "¿Quién anotó el gol del triunfo en la final de 2010?",
+        "answer": "Andrés Iniesta"
         }
       ]
     },

@@ -1,11 +1,32 @@
 {
-    "categories": [
-        "Mundial de Fútbol",
-        "ISO 8583",
-        "Gastronomía Ecuador",
-        "Dragon Ball",
-        "Sitcoms 2000",
-        "Emo 2000",
-        "Geografía Ecuador"
-    ]
+  "categories": [
+    {
+      "name": "Mundial de Fútbol",
+      "questions": []
+    },
+    {
+      "name": "ISO 8583",
+      "questions": []
+    },
+    {
+      "name": "Gastronomía Ecuador",
+      "questions": []
+    },
+    {
+      "name": "Dragon Ball",
+      "questions": []
+    },
+    {
+      "name": "Sitcoms 2000",
+      "questions": []
+    },
+    {
+      "name": "Emo 2000",
+      "questions": []
+    },
+    {
+      "name": "Geografía Ecuador",
+      "questions": []
+    }
+  ]
 }

@@ -3,8 +3,17 @@ import { renderBoard } from "../views/BoardView.js";
 
 export async function startGame(){
 
-    const game = await loadQuestions();
+    try{
 
-    renderBoard(game.categories);
+        const game = await loadQuestions();
+
+        renderBoard(game.categories);
+
+    }
+    catch(error){
+
+        console.error(error);
+
+    }
 
 }

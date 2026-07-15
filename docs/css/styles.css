@@ -36,7 +36,7 @@ h1{
 
     display:grid;
 
-    grid-template-columns:repeat(6,1fr);
+  /*  grid-template-columns:repeat(6,1fr);*/
 
     gap:8px;
 
@@ -83,5 +83,17 @@ h1{
 .question:hover{
 
     background:#005fd4;
+
+}
+
+main{
+
+    padding:20px;
+
+}
+
+#board{
+
+    margin-top:20px;
 
 }

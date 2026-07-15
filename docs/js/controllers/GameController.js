@@ -8,7 +8,10 @@ export async function startGame(){
 
         const game = await loadQuestions();
 
-        renderBoard(game.categories);
+        renderBoard(
+            game.categories,
+            handleQuestionSelected
+        );
 
         document.title = GAME_CONFIG.gameName;
 
@@ -23,6 +26,8 @@ export async function startGame(){
             .getElementById("close-modal")
             .addEventListener("click", closeModal);
 
+        
+
     }
     catch(error){
 
@@ -34,5 +39,12 @@ export async function startGame(){
 
 import {
     showAnswer,
+    showQuestion,
     closeModal
 } from "../views/ModalView.js";
+
+function handleQuestionSelected(question){
+
+    showQuestion(question.value);
+
+}

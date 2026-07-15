@@ -10,12 +10,11 @@ export default class GameModel {
 
         this.currentQuestion = null;
 
-        this.usedQuestions = [];
+        this.usedQuestions = new Set();
 
         this.scoreBoard = [];
 
         this.gameStarted = false;
 
     }
-
 }

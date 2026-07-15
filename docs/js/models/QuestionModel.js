@@ -1,11 +1,13 @@
 export default class QuestionModel{
 
     constructor(
+        id,
         category,
         value,
         question,
         answer
     ){
+        this.id = id;
 
         this.category = category;
 
@@ -16,7 +18,5 @@ export default class QuestionModel{
         this.answer = answer;
 
         this.used = false;
-
     }
-
 }

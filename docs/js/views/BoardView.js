@@ -1,7 +1,7 @@
 import { GAME_CONFIG } from "../config.js";
 import { showQuestion } from "./ModalView.js";
 
-export function renderBoard(categories) {
+export function renderBoard(categories, onQuestionSelected) {
 
     const board = document.getElementById("board");
 
@@ -28,7 +28,7 @@ export function renderBoard(categories) {
 
     values.forEach(value=>{
 
-        categories.forEach(()=>{
+        categories.forEach(category => {
 
             const button=document.createElement("button");
 
@@ -38,9 +38,12 @@ export function renderBoard(categories) {
 
             board.appendChild(button);
 
-            button.addEventListener("click", () => {
+           button.addEventListener("click", () => {
 
-                showQuestion(value);
+                onQuestionSelected({
+                    category: category.name,
+                    value: value
+                });
 
             });
 

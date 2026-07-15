@@ -1,32 +1,55 @@
 {
   "categories": [
     {
+      "id": 1,
       "name": "Mundial de Fútbol",
       "questions": []
     },
     {
+      "id": 2,
       "name": "ISO 8583",
       "questions": []
     },
     {
+      "id": 3,
       "name": "Gastronomía Ecuador",
       "questions": []
     },
     {
+      "id": 4,
       "name": "Dragon Ball",
       "questions": []
     },
     {
+      "id": 5,
       "name": "Sitcoms 2000",
       "questions": []
     },
     {
+      "id": 6,
       "name": "Emo 2000",
       "questions": []
     },
     {
+      "id": 7,
       "name": "Geografía Ecuador",
+      "questions": []
+    },
+    {
+      "id": 8,
+      "name": "British Music",
+      "questions": []
+    },
+    {
+      "id": 9,
+      "name": "Baladas Español",
+      "questions": []
+    },
+    {
+      "id": 10,
+      "name": "DBA",
       "questions": []
     }
   ]
 }
+

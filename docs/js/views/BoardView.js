@@ -1,3 +1,5 @@
+import { GAME_CONFIG } from "../config.js";
+
 export function renderBoard(categories) {
 
     const board = document.getElementById("board");
@@ -21,7 +23,7 @@ export function renderBoard(categories) {
 
     });
 
-    const values = [100,200,300,400,500];
+    const values = GAME_CONFIG.questionValues;
 
     values.forEach(value=>{
 

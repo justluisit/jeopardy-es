@@ -3,7 +3,10 @@ export function showQuestion(question) {
     const modal = document.getElementById("modal");
 
     document.getElementById("question-value").textContent =
-        question.value;
+    `${question.value} puntos`;
+
+    document.getElementById("question-category").textContent =
+        question.category;
 
     document.getElementById("question-text").textContent =
         question.question;

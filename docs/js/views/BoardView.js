@@ -11,45 +11,58 @@ export function renderBoard(categories, onQuestionSelected) {
     board.style.gridTemplateColumns =
         `repeat(${categories.length}, 1fr)`;
 
+
     // Encabezados
     categories.forEach(category => {
 
-        const cell = document.createElement("div");
+        const header = document.createElement("div");
 
-        cell.className = "category";
+        header.className = "category";
 
-        cell.textContent = category.name;
+        header.textContent = category.name;
 
-        board.appendChild(cell);
+        board.appendChild(header);
 
     });
 
-    const values = GAME_CONFIG.questionValues;
+    // Filas de preguntas
+    const maxQuestions = Math.max(
+        ...categories.map(c => c.questions.length)
+    );
 
-    values.forEach(value=>{
+    for (let row = 0; row < maxQuestions; row++) {
 
         categories.forEach(category => {
 
-            const button=document.createElement("button");
+            const question = category.questions[row];
 
-            button.className="question";
+            if (!question) {
 
-            button.textContent=value;
+                const empty = document.createElement("div");
 
-            board.appendChild(button);
+                board.appendChild(empty);
 
-           button.addEventListener("click", () => {
+                return;
 
-                onQuestionSelected({
-                    category: category.name,
-                    value: value
-                });
+            }
+
+            const button = document.createElement("button");
+
+            button.className = "question";
+
+            button.textContent = question.value;
+
+            button.addEventListener("click", () => {
+
+                onQuestionSelected(question);
 
             });
 
+            board.appendChild(button);
+
         });
 
-    });
+    }
 
     
 

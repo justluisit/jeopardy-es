@@ -61,16 +61,10 @@ function handleQuestionSelected(question){
 
 }
 
-function findQuestion(categories, categoryName, value) {
+function handleQuestionSelected(question) {
 
-    const category = categories.find(c => c.name === categoryName);
+    game.setCurrentQuestion(question);
 
-    if (!category) {
-
-        return null;
-
-    }
-
-    return category.questions.find(q => q.value === value);
+    showQuestion(question);
 
 }

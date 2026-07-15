@@ -45,7 +45,7 @@ import {
     closeModal
 } from "../views/ModalView.js";
 
-function handleQuestionSelected(question){
+/*function handleQuestionSelected(question){
 
     const selected = findQuestion(
         game.categories,
@@ -59,7 +59,7 @@ function handleQuestionSelected(question){
 
     }
 
-}
+}*/
 
 function handleQuestionSelected(question) {
 

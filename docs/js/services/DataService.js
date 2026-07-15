@@ -1,18 +1,21 @@
+import GameModel from "../models/GameModel.js";
+import CategoryModel from "../models/CategoryModel.js";
 import QuestionModel from "../models/QuestionModel.js";
 
-export async function loadQuestions() {
+export async function loadQuestions(){
 
     const response = await fetch("./data/questions.json");
 
-    if (!response.ok) {
+    if(!response.ok){
+
         throw new Error("No se pudo cargar questions.json");
+
     }
 
     const data = await response.json();
 
-    data.categories = buildQuestions(data.categories);
+    return buildGame(data);
 
-    return data;
 }
 
 function buildQuestions(categories) {
@@ -31,4 +34,36 @@ function buildQuestions(categories) {
     });
 
     return categories;
+}
+
+function buildGame(data){
+
+    const game = new GameModel();
+
+    game.setInfo(data.game);
+
+    data.categories.forEach(categoryData=>{
+
+        const category = new CategoryModel(categoryData);
+
+        categoryData.questions.forEach(questionData=>{
+
+            const question = new QuestionModel({
+
+                ...questionData,
+
+                categoryId: category.id
+
+            });
+
+            category.addQuestion(question);
+
+        });
+
+        game.addCategory(category);
+
+    });
+
+    return game;
+
 }

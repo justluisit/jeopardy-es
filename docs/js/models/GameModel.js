@@ -2,11 +2,13 @@ export default class GameModel {
 
     constructor() {
 
+        this.info = {};
+
+        this.categories = [];
+
         this.players = [];
 
         this.currentPlayer = 0;
-
-        this.categories = [];
 
         this.currentQuestion = null;
 
@@ -18,27 +20,34 @@ export default class GameModel {
 
     }
 
-    addCategory(category) {
+    setInfo(info){
+
+        this.info = info;
+
+    }
+
+    addCategory(category){
 
         this.categories.push(category);
 
     }
 
-    setCurrentQuestion(question) {
+    setCurrentQuestion(question){
 
         this.currentQuestion = question;
 
     }
 
-    markQuestionAsUsed(questionId) {
+    markQuestionAsUsed(questionId){
 
         this.usedQuestions.add(questionId);
 
     }
 
-    isQuestionUsed(questionId) {
+    isQuestionUsed(questionId){
 
         return this.usedQuestions.has(questionId);
 
     }
+
 }

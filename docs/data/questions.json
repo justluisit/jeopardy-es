@@ -1,9 +1,44 @@
 {
+  "game": {
+    "title": "Jeopardy ES",
+    "version": "0.1.0"
+  },
   "categories": [
     {
       "id": 1,
       "name": "Mundial de Fútbol",
-      "questions": []
+      "questions": [
+        {
+          "id": 101,
+          "value": 100,
+          "question": "",
+          "answer": ""
+        },
+        {
+          "id": 102,
+          "value": 200,
+          "question": "",
+          "answer": ""
+        },
+        {
+          "id": 103,
+          "value": 300,
+          "question": "",
+          "answer": ""
+        },
+        {
+          "id": 104,
+          "value": 400,
+          "question": "",
+          "answer": ""
+        },
+        {
+          "id": 105,
+          "value": 500,
+          "question": "",
+          "answer": ""
+        }
+      ]
     },
     {
       "id": 2,

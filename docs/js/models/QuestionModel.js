@@ -1,22 +1,19 @@
-export default class QuestionModel{
+export default class QuestionModel {
 
-    constructor(
-        id,
-        category,
-        value,
-        question,
-        answer
-    ){
-        this.id = id;
+    constructor(data) {
 
-        this.category = category;
+        this.id = data.id;
 
-        this.value = value;
+        this.categoryId = data.categoryId;
 
-        this.question = question;
+        this.value = data.value;
 
-        this.answer = answer;
+        this.question = data.question;
+
+        this.answer = data.answer;
 
         this.used = false;
+
     }
+
 }

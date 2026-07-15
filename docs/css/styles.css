@@ -97,3 +97,55 @@ main{
     margin-top:20px;
 
 }
+
+#modal.hidden{
+    display:none;
+}
+
+#modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.75);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.modal-content{
+
+    width:600px;
+
+    background:white;
+
+    color:black;
+
+    padding:30px;
+
+    border-radius:10px;
+
+}
+
+.modal-buttons{
+
+    margin-top:30px;
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.modal-buttons button{
+
+    padding:12px 20px;
+
+    cursor:pointer;
+
+}

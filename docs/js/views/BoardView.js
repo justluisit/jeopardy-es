@@ -1,4 +1,5 @@
 import { GAME_CONFIG } from "../config.js";
+import { showQuestion } from "./ModalView.js";
 
 export function renderBoard(categories) {
 
@@ -37,8 +38,16 @@ export function renderBoard(categories) {
 
             board.appendChild(button);
 
+            button.addEventListener("click", () => {
+
+                showQuestion(value);
+
+            });
+
         });
 
     });
+
+    
 
 }

@@ -15,6 +15,14 @@ export async function startGame(){
         document.querySelector("h1").textContent =
             GAME_CONFIG.gameName;
 
+        document
+            .getElementById("show-answer")
+            .addEventListener("click", showAnswer);
+
+        document
+            .getElementById("close-modal")
+            .addEventListener("click", closeModal);
+
     }
     catch(error){
 
@@ -23,3 +31,8 @@ export async function startGame(){
     }
 
 }
+
+import {
+    showAnswer,
+    closeModal
+} from "../views/ModalView.js";

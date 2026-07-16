@@ -20,8 +20,42 @@ export function generatePlayerInputs(count){
 
         input.value = values[i] ?? "";
 
+        input.addEventListener(
+            "input",
+            validatePlayers
+        );
+
         container.appendChild(input);
 
     }
+
+    validatePlayers();
+
+}
+
+export function validatePlayers(){
+
+    const names = getPlayerNames();
+
+    const valid =
+        names.length>0 &&
+        names.every(n=>n.length>0) &&
+        new Set(names).size===names.length;
+
+    document
+        .getElementById("start-game")
+        .disabled=!valid;
+
+}
+
+export function getPlayerNames(){
+
+    return Array
+        .from(
+            document.querySelectorAll(
+                "#player-inputs input"
+            )
+        )
+        .map(input=>input.value.trim());
 
 }

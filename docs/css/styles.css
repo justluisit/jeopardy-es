@@ -368,7 +368,26 @@ select{
     display:none !important;
 
 }
+#player-options{
 
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    margin-bottom:20px;
+
+}
+#player-options label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
 /**********************************************/
 /*************** ANIMACION ********************/
 /**********************************************/

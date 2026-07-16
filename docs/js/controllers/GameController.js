@@ -1,9 +1,10 @@
 import { loadQuestions } from "../services/DataService.js";
 import { renderBoard } from "../views/BoardView.js";
 import { GAME_CONFIG } from "../config.js";
-import { initializeModal } from "../views/ModalView.js";
+import { initializeModal, initializeEvaluation } from "../views/ModalView.js";
 import { disableQuestion, setBoardEnabled } from "../views/BoardView.js";
-import { getPlayerNames, generatePlayerInputs, hidePlayerSetup } from "../views/PlayerSetupView.js";
+import { getPlayerNames, generatePlayerInputs, 
+        hidePlayerSetup } from "../views/PlayerSetupView.js";
 
 let game = null;
 
@@ -34,6 +35,8 @@ export async function startGame(){
             .addEventListener("click", closeModal);
 
         initializeModal(handleQuestionClosed);
+
+        initializeEvaluation(handleSaveResult);
 
         generatePlayerInputs(3);
 
@@ -69,7 +72,8 @@ export async function startGame(){
 import {
     showAnswer,
     showQuestion,
-    closeModal
+    closeModal,
+    populatePlayers
 } from "../views/ModalView.js";
 
 /*function handleQuestionSelected(question){
@@ -95,6 +99,8 @@ function handleQuestionSelected(question) {
     }
 
     game.setCurrentQuestion(question);
+
+    populatePlayers(game.players);
 
     showQuestion(question);
 
@@ -131,6 +137,22 @@ function handleStartGame(){
     setBoardEnabled(true);
 
     console.log(game.players);
+
+}
+
+function handleSaveResult(){
+
+    closeModal();
+
+    game.markQuestionAsUsed(
+        game.currentQuestion.id
+    );
+
+    disableQuestion(
+        game.currentQuestion.id
+    );
+
+    game.currentQuestion = null;
 
 }
 

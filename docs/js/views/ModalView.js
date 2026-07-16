@@ -1,3 +1,17 @@
+export function initializeModal(onClose){
+
+    document
+        .getElementById("close-modal")
+        .addEventListener("click", () => {
+
+            closeModal();
+
+            onClose();
+
+        });
+
+}
+
 export function showQuestion(question) {
 
     const modal = document.getElementById("modal");
@@ -33,3 +47,4 @@ export function closeModal() {
     document.getElementById("modal").classList.add("hidden");
 
 }
+

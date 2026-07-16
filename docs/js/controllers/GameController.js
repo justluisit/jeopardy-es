@@ -1,6 +1,8 @@
 import { loadQuestions } from "../services/DataService.js";
 import { renderBoard } from "../views/BoardView.js";
 import { GAME_CONFIG } from "../config.js";
+import { initializeModal } from "../views/ModalView.js";
+import { disableQuestion } from "../views/BoardView.js";
 
 let game = null;
 
@@ -28,6 +30,7 @@ export async function startGame(){
             .getElementById("close-modal")
             .addEventListener("click", closeModal);
 
+        initializeModal(handleQuestionClosed);
         
 
     }
@@ -63,8 +66,31 @@ import {
 
 function handleQuestionSelected(question) {
 
+    if(game.isQuestionUsed(question.id)){
+        return;
+    }
+
     game.setCurrentQuestion(question);
 
     showQuestion(question);
 
 }
+
+function handleQuestionClosed(){
+
+    if(!game.currentQuestion){
+        return;
+    }
+
+    game.markQuestionAsUsed(
+        game.currentQuestion.id
+    );
+
+    disableQuestion(
+        game.currentQuestion.id
+    );
+
+    game.currentQuestion = null;
+
+}
+

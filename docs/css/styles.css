@@ -149,3 +149,18 @@ main{
     cursor:pointer;
 
 }
+.question.used{
+
+    background:#444;
+
+    color:#999;
+
+    cursor:default;
+
+}
+
+.question:disabled{
+
+    pointer-events:none;
+
+}

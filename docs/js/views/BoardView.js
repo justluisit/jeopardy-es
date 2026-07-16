@@ -48,6 +48,8 @@ export function renderBoard(categories, onQuestionSelected) {
 
             const button = document.createElement("button");
 
+            button.dataset.questionId = question.id;
+
             button.className = "question";
 
             button.textContent = question.value;
@@ -67,3 +69,19 @@ export function renderBoard(categories, onQuestionSelected) {
     
 
 }
+
+export function disableQuestion(questionId){
+
+    const button = document.querySelector(
+        `[data-question-id="${questionId}"]`
+    );
+
+    if(!button){
+        return;
+    }
+
+    button.disabled = true;
+
+    button.classList.add("used");
+}
+

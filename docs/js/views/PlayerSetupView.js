@@ -59,3 +59,19 @@ export function getPlayerNames(){
         .map(input=>input.value.trim());
 
 }
+
+export function hidePlayerSetup(){
+
+    document
+        .getElementById("player-setup")
+        .classList.add("hidden");
+
+}
+
+export function showPlayerSetup(){
+
+    document
+        .getElementById("player-setup")
+        .classList.remove("hidden");
+
+}

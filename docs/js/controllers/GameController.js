@@ -2,8 +2,8 @@ import { loadQuestions } from "../services/DataService.js";
 import { renderBoard } from "../views/BoardView.js";
 import { GAME_CONFIG } from "../config.js";
 import { initializeModal } from "../views/ModalView.js";
-import { disableQuestion } from "../views/BoardView.js";
-import { generatePlayerInputs } from "../views/PlayerSetupView.js";
+import { disableQuestion, setBoardEnabled } from "../views/BoardView.js";
+import { getPlayerNames, generatePlayerInputs, hidePlayerSetup } from "../views/PlayerSetupView.js";
 
 let game = null;
 
@@ -46,6 +46,15 @@ export async function startGame(){
                 );
 
             });
+
+        setBoardEnabled(false);
+
+        document
+        .getElementById("start-game")
+        .addEventListener(
+            "click",
+            handleStartGame
+        );
         
 
     }
@@ -106,6 +115,22 @@ function handleQuestionClosed(){
     );
 
     game.currentQuestion = null;
+
+}
+
+function handleStartGame(){
+
+    const names=getPlayerNames();
+
+    game.createPlayers(names);
+
+    game.startGame();
+
+    hidePlayerSetup();
+
+    setBoardEnabled(true);
+
+    console.log(game.players);
 
 }
 

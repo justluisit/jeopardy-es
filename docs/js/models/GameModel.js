@@ -1,3 +1,5 @@
+import PlayerModel from "./PlayerModel.js";
+
 export default class GameModel {
 
     constructor() {
@@ -65,6 +67,29 @@ export default class GameModel {
     startGame(){
 
         this.gameReady = true;
+
+    }
+
+    clearPlayers(){
+
+        this.players = [];
+
+    }
+
+    createPlayers(names){
+
+        this.clearPlayers();
+
+        names.forEach((name,index)=>{
+
+            this.players.push(
+                new PlayerModel(
+                    index + 1,
+                    name
+                )
+            );
+
+        });
 
     }
 }

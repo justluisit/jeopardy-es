@@ -18,6 +18,8 @@ export async function startGame(){
         );
 
         document.title = GAME_CONFIG.gameName;
+        document.getElementById("subtitle").textContent =
+            "Versión MVP v0.1.0";
 
         document.querySelector("h1").textContent =
             GAME_CONFIG.gameName;

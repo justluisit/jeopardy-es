@@ -55,6 +55,53 @@
         <section id="board"></section>
 
     </main>
+    <div id="player-setup" class="modal-overlay">
+
+        <div class="modal-content player-modal">
+
+            <h2>Nueva partida</h2>
+
+            <div class="form-group">
+
+                <label for="player-count">
+
+                    Número de jugadores
+
+                </label>
+
+                <select id="player-count">
+
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3" selected>3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+
+                </select>
+
+            </div>
+
+            <div id="player-inputs"></div>
+
+            <div class="modal-buttons">
+
+                <button id="cancel-game">
+
+                    Cancelar
+
+                </button>
+
+                <button id="start-game">
+
+                    Comenzar partida
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
 
     <script type="module" src="js/app.js"></script>
 

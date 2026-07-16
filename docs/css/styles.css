@@ -274,9 +274,98 @@ header h1{
     color:#d7d7d7;
 
 }
+#player-inputs{
 
+    display:flex;
 
-/** ANIMACION **/
+    flex-direction:column;
+
+    gap:12px;
+
+    margin:20px 0;
+
+}
+
+#player-inputs input{
+
+    padding:10px;
+
+    font-size:1rem;
+
+    border-radius:6px;
+
+}
+#player-setup{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.75);
+
+    backdrop-filter:blur(3px);
+
+    z-index:1000;
+
+}
+.modal-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.70);
+
+    backdrop-filter:blur(3px);
+
+    z-index:2000;
+
+}
+.player-modal{
+
+    width:520px;
+
+    max-width:90%;
+
+}
+.form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+    margin:25px 0;
+
+}
+.form-group label{
+
+    font-weight:bold;
+
+}
+select{
+
+    padding:10px;
+
+    font-size:1rem;
+
+}
+/**********************************************/
+/*************** ANIMACION ********************/
+/**********************************************/
 
 @keyframes popup{
 

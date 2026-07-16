@@ -3,6 +3,7 @@ import { renderBoard } from "../views/BoardView.js";
 import { GAME_CONFIG } from "../config.js";
 import { initializeModal } from "../views/ModalView.js";
 import { disableQuestion } from "../views/BoardView.js";
+import { generatePlayerInputs } from "../views/PlayerSetupView.js";
 
 let game = null;
 
@@ -33,6 +34,18 @@ export async function startGame(){
             .addEventListener("click", closeModal);
 
         initializeModal(handleQuestionClosed);
+
+        generatePlayerInputs(3);
+
+        document
+            .getElementById("player-count")
+            .addEventListener("change", event=>{
+
+                generatePlayerInputs(
+                    Number(event.target.value)
+                );
+
+            });
         
 
     }

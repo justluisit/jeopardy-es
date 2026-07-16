@@ -20,6 +20,10 @@ export default class GameModel {
 
         this.board = [];
 
+        this.players = [];
+
+        this.gameReady = false;
+
     }
 
     setInfo(info){
@@ -52,4 +56,15 @@ export default class GameModel {
 
     }
 
+    addPlayer(player){
+
+        this.players.push(player);
+
+    }
+
+    startGame(){
+
+        this.gameReady = true;
+
+    }
 }

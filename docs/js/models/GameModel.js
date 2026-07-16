@@ -18,6 +18,8 @@ export default class GameModel {
 
         this.gameStarted = false;
 
+        this.board = [];
+
     }
 
     setInfo(info){

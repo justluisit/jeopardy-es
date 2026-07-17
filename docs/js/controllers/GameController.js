@@ -1,6 +1,6 @@
 import { loadQuestions } from "../services/DataService.js";
 import { renderBoard } from "../views/BoardView.js";
-import { GAME_CONFIG } from "../config.js";
+import { GAME_CONFIG, TOTAL_QUESTIONS } from "../config.js";
 import { initializeModal, initializeEvaluation, getSelectedPlayerId } from "../views/ModalView.js";
 import { disableQuestion, setBoardEnabled } from "../views/BoardView.js";
 import { getPlayerNames, generatePlayerInputs, 
@@ -210,11 +210,12 @@ function processAnswer(isCorrect){
 
     if(game.shouldShowLeaderboard()){
 
-        showLeaderboard(
-            game.getLeaderboard(),
-            game.answeredQuestions,
-            TOTAL_QUESTIONS
-        );
+        showLeaderboard({
+            players: game.getLeaderboard(),
+            answeredQuestions: game.answeredQuestions,
+            totalQuestions: game.getTotalQuestions(),
+            isFinal: false
+        });
 
         return;
 

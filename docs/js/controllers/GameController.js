@@ -210,11 +210,13 @@ function processAnswer(isCorrect){
 
     if(game.shouldShowLeaderboard()){
 
+        const isFinalFlag = game.answeredQuestions >= TOTAL_QUESTIONS;
+
         showLeaderboard({
             players: game.getLeaderboard(),
             answeredQuestions: game.answeredQuestions,
             totalQuestions: TOTAL_QUESTIONS,
-            isFinal: false
+            isFinal: isFinalFlag
         });
 
         return;

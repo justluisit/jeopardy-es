@@ -13,8 +13,13 @@ export function initializeLeaderboard(onContinue) {
 }
 
 
-export function showLeaderboard(players, answeredQuestions, totalQuestions, isFinal = false) {
-
+//export function showLeaderboard(players, answeredQuestions, totalQuestions, isFinal = false) {
+export function showLeaderboard({
+    players,
+    answeredQuestions,
+    totalQuestions,
+    isFinal = false
+}) {
     title.textContent = isFinal
         ? "🏆 Clasificación Final"
         : "🏆 Clasificación";
@@ -22,6 +27,7 @@ export function showLeaderboard(players, answeredQuestions, totalQuestions, isFi
     list.innerHTML = "";
 
     const medals = ["🥇", "🥈", "🥉"];
+
 
     players.forEach((player, index) => {
 
@@ -31,10 +37,14 @@ export function showLeaderboard(players, answeredQuestions, totalQuestions, isFi
 
         row.className = "leaderboard-row";
 
-        row.innerHTML = `
-            <span>${position} ${player.name}</span>
-            <span>${player.score} pts</span>
-        `;
+        const left = document.createElement("span");
+        left.textContent = `${position} ${player.name}`;
+
+        const right = document.createElement("span");
+        right.textContent = `${player.score} pts`;
+
+        row.appendChild(left);
+        row.appendChild(right);
 
         list.appendChild(row);
 

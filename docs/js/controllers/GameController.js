@@ -213,7 +213,7 @@ function processAnswer(isCorrect){
         showLeaderboard({
             players: game.getLeaderboard(),
             answeredQuestions: game.answeredQuestions,
-            totalQuestions: game.getTotalQuestions(),
+            totalQuestions: TOTAL_QUESTIONS,
             isFinal: false
         });
 

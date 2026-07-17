@@ -1,3 +1,5 @@
+import PlayerModel from "./PlayerModel.js";
+
 export default class GameModel {
 
     constructor() {
@@ -19,6 +21,12 @@ export default class GameModel {
         this.gameStarted = false;
 
         this.board = [];
+
+        this.players = [];
+
+        this.gameReady = false;
+
+        this.answeredQuestions = 0;
 
     }
 
@@ -52,4 +60,80 @@ export default class GameModel {
 
     }
 
+    addPlayer(player){
+
+        this.players.push(player);
+
+    }
+
+    startGame(){
+
+        this.gameReady = true;
+
+    }
+
+    clearPlayers(){
+
+        this.players = [];
+
+    }
+
+    createPlayers(names){
+
+        this.clearPlayers();
+
+        names.forEach((name,index)=>{
+
+            this.players.push(
+                new PlayerModel(
+                    index + 1,
+                    name
+                )
+            );
+
+        });
+
+    }
+
+    getPlayer(playerId){
+
+        return this.players.find(
+            player => player.id === playerId
+        );
+
+    }
+
+    recordAnswer(playerId, points, isCorrect){
+
+        const player = this.getPlayer(playerId);
+
+        if(!player){
+
+            return false;
+
+        }
+
+        player.applyResult(points, isCorrect);
+
+        this.answeredQuestions++;
+
+        return true;
+
+    }
+    getLeaderboard(){
+
+        return [...this.players]
+            .sort((a, b) => b.score - a.score);
+
+    }
+    shouldShowLeaderboard(){
+
+        return this.answeredQuestions > 0 &&
+            this.answeredQuestions % 5 === 0;
+
+    }
+    isGameFinished(){
+
+        return this.usedQuestions.size === 35;
+    }
 }

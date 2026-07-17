@@ -1,8 +1,11 @@
 import { loadQuestions } from "../services/DataService.js";
 import { renderBoard } from "../views/BoardView.js";
-import { GAME_CONFIG } from "../config.js";
-import { initializeModal } from "../views/ModalView.js";
-import { disableQuestion } from "../views/BoardView.js";
+import { GAME_CONFIG, TOTAL_QUESTIONS } from "../config.js";
+import { initializeModal, initializeEvaluation, getSelectedPlayerId } from "../views/ModalView.js";
+import { disableQuestion, setBoardEnabled } from "../views/BoardView.js";
+import { getPlayerNames, generatePlayerInputs, 
+        hidePlayerSetup } from "../views/PlayerSetupView.js";
+import { initializeLeaderboard, showLeaderboard, closeLeaderboard } from "../views/LeaderboardView.js"; 
 
 let game = null;
 
@@ -33,6 +36,34 @@ export async function startGame(){
             .addEventListener("click", closeModal);
 
         initializeModal(handleQuestionClosed);
+
+        initializeEvaluation(
+            handleCorrectAnswer,
+            handleIncorrectAnswer
+        );
+
+        initializeLeaderboard(handleContinueLeaderboard);
+
+        generatePlayerInputs(3);
+
+        document
+            .getElementById("player-count")
+            .addEventListener("change", event=>{
+
+                generatePlayerInputs(
+                    Number(event.target.value)
+                );
+
+            });
+
+        setBoardEnabled(false);
+
+        document
+        .getElementById("start-game")
+        .addEventListener(
+            "click",
+            handleStartGame
+        );
         
 
     }
@@ -47,7 +78,8 @@ export async function startGame(){
 import {
     showAnswer,
     showQuestion,
-    closeModal
+    closeModal,
+    populatePlayers
 } from "../views/ModalView.js";
 
 /*function handleQuestionSelected(question){
@@ -74,6 +106,8 @@ function handleQuestionSelected(question) {
 
     game.setCurrentQuestion(question);
 
+    populatePlayers(game.players);
+
     showQuestion(question);
 
 }
@@ -93,6 +127,109 @@ function handleQuestionClosed(){
     );
 
     game.currentQuestion = null;
+
+}
+
+function handleStartGame(){
+
+    const names=getPlayerNames();
+
+    game.createPlayers(names);
+
+    game.startGame();
+
+    hidePlayerSetup();
+
+    setBoardEnabled(true);
+
+    console.log(game.players);
+
+}
+
+function handleSaveResult(){
+
+    closeModal();
+
+    game.markQuestionAsUsed(
+        game.currentQuestion.id
+    );
+
+    disableQuestion(
+        game.currentQuestion.id
+    );
+
+    game.currentQuestion = null;
+
+}
+
+function handleCorrectAnswer(){
+
+    processAnswer(true);
+
+}
+
+function handleIncorrectAnswer(){
+    processAnswer(false);
+}
+
+function processAnswer(isCorrect){
+
+    const playerId = getSelectedPlayerId();
+
+    if(playerId===null){
+
+        alert(
+            "Seleccione un jugador."
+        );
+
+        return;
+
+    }
+
+    game.recordAnswer(
+
+        playerId,
+
+        game.currentQuestion.value,
+
+        isCorrect
+
+    );
+
+    game.markQuestionAsUsed(
+        game.currentQuestion.id
+    );
+
+    disableQuestion(
+        game.currentQuestion.id
+    );
+
+    closeModal();
+
+    game.currentQuestion = null;
+
+    if(game.shouldShowLeaderboard()){
+
+        const isFinalFlag = game.answeredQuestions >= TOTAL_QUESTIONS;
+
+        showLeaderboard({
+            players: game.getLeaderboard(),
+            answeredQuestions: game.answeredQuestions,
+            totalQuestions: TOTAL_QUESTIONS,
+            isFinal: isFinalFlag
+        });
+
+        return;
+
+    }
+
+
+
+}
+
+function handleContinueLeaderboard(){
+
+    closeLeaderboard();
 
 }
 

@@ -85,3 +85,15 @@ export function disableQuestion(questionId){
     button.classList.add("used");
 }
 
+export function setBoardEnabled(enabled){
+
+    document
+        .querySelectorAll(".question")
+        .forEach(button=>{
+
+            button.disabled=!enabled;
+
+        });
+
+}
+

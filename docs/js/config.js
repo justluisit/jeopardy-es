@@ -19,3 +19,6 @@ export const GAME_CONFIG = {
     theme: "classic"
 
 };
+
+export const MAX_PLAYERS = 5;
+export const TOTAL_QUESTIONS = 35;

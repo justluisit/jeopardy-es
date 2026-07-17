@@ -147,6 +147,18 @@ main{
     backdrop-filter:blur(3px);
 
 }
+.modal {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0,0,0,.65);
+
+    z-index: 1000;
+}
 .modal-content{
 
     width:700px;
@@ -274,9 +286,165 @@ header h1{
     color:#d7d7d7;
 
 }
+#player-inputs{
 
+    display:flex;
 
-/** ANIMACION **/
+    flex-direction:column;
+
+    gap:12px;
+
+    margin:20px 0;
+
+}
+
+#player-inputs input{
+
+    padding:10px;
+
+    font-size:1rem;
+
+    border-radius:6px;
+
+}
+#player-setup{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.75);
+
+    backdrop-filter:blur(3px);
+
+    z-index:1000;
+
+}
+.modal-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.70);
+
+    backdrop-filter:blur(3px);
+
+    z-index:2000;
+
+}
+.player-modal{
+
+    width:520px;
+
+    max-width:90%;
+
+}
+.form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+    margin:25px 0;
+
+}
+.form-group label{
+
+    font-weight:bold;
+
+}
+select{
+
+    padding:10px;
+
+    font-size:1rem;
+
+}
+.hidden{
+
+    display:none !important;
+
+}
+#player-options{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    margin-bottom:20px;
+
+}
+#player-options label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+.result-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:25px;
+
+}
+.success{
+
+    flex:1;
+
+    background:#1b8d3d;
+
+    color:white;
+
+}
+.danger{
+
+    flex:1;
+
+    background:#c62828;
+
+    color:white;
+
+}
+#leaderboard-list{
+    margin:20px 0;
+}
+
+.leaderboard-row{
+
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+
+    border-bottom:1px solid #ddd;
+
+    font-size:1.1rem;
+
+}
+/**********************************************/
+/*************** ANIMACION ********************/
+/**********************************************/
 
 @keyframes popup{
 

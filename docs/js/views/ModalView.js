@@ -11,15 +11,24 @@ export function initializeModal(onClose){
         });
 
 }
-export function initializeEvaluation(onSave){
+export function initializeEvaluation(
+    onCorrect,
+    onIncorrect
+){
 
     document
-        .getElementById("save-result")
-        .addEventListener("click", () => {
+        .getElementById("correct-answer")
+        .addEventListener(
+            "click",
+            onCorrect
+        );
 
-            onSave();
-
-        });
+    document
+        .getElementById("incorrect-answer")
+        .addEventListener(
+            "click",
+            onIncorrect
+        );
 
 }
 

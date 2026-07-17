@@ -388,6 +388,33 @@ select{
     gap:10px;
 
 }
+.result-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:25px;
+
+}
+.success{
+
+    flex:1;
+
+    background:#1b8d3d;
+
+    color:white;
+
+}
+.danger{
+
+    flex:1;
+
+    background:#c62828;
+
+    color:white;
+
+}
 /**********************************************/
 /*************** ANIMACION ********************/
 /**********************************************/

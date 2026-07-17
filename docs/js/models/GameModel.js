@@ -26,6 +26,8 @@ export default class GameModel {
 
         this.gameReady = false;
 
+        this.answeredQuestions = 0;
+
     }
 
     setInfo(info){
@@ -90,6 +92,32 @@ export default class GameModel {
             );
 
         });
+
+    }
+
+    getPlayer(playerId){
+
+        return this.players.find(
+            player => player.id === playerId
+        );
+
+    }
+
+    recordAnswer(playerId, points, isCorrect){
+
+        const player = this.getPlayer(playerId);
+
+        if(!player){
+
+            return false;
+
+        }
+
+        player.applyResult(points, isCorrect);
+
+        this.answeredQuestions++;
+
+        return true;
 
     }
 }

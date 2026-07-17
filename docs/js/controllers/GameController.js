@@ -1,7 +1,7 @@
 import { loadQuestions } from "../services/DataService.js";
 import { renderBoard } from "../views/BoardView.js";
 import { GAME_CONFIG } from "../config.js";
-import { initializeModal, initializeEvaluation } from "../views/ModalView.js";
+import { initializeModal, initializeEvaluation, getSelectedPlayerId } from "../views/ModalView.js";
 import { disableQuestion, setBoardEnabled } from "../views/BoardView.js";
 import { getPlayerNames, generatePlayerInputs, 
         hidePlayerSetup } from "../views/PlayerSetupView.js";
@@ -36,8 +36,11 @@ export async function startGame(){
 
         initializeModal(handleQuestionClosed);
 
-        initializeEvaluation(handleSaveResult);
-
+        initializeEvaluation(
+            handleCorrectAnswer,
+            handleIncorrectAnswer
+        );
+        
         generatePlayerInputs(3);
 
         document
@@ -151,6 +154,54 @@ function handleSaveResult(){
     disableQuestion(
         game.currentQuestion.id
     );
+
+    game.currentQuestion = null;
+
+}
+
+function handleCorrectAnswer(){
+
+    processAnswer(true);
+
+}
+
+function handleIncorrectAnswer(){
+    processAnswer(false);
+}
+
+function processAnswer(isCorrect){
+
+    const playerId = getSelectedPlayerId();
+
+    if(playerId===null){
+
+        alert(
+            "Seleccione un jugador."
+        );
+
+        return;
+
+    }
+
+    game.recordAnswer(
+
+        playerId,
+
+        game.currentQuestion.value,
+
+        isCorrect
+
+    );
+
+    game.markQuestionAsUsed(
+        game.currentQuestion.id
+    );
+
+    disableQuestion(
+        game.currentQuestion.id
+    );
+
+    closeModal();
 
     game.currentQuestion = null;
 

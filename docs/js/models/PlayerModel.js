@@ -14,19 +14,21 @@ export default class PlayerModel {
 
     }
 
-    addScore(points) {
+    applyResult(points, isCorrect){
 
-        this.score += points;
+        if(isCorrect){
 
-        this.correctAnswers++;
+            this.score += points;
 
-    }
+            this.correctAnswers++;
 
-    subtractScore(points) {
+        }else{
 
-        this.score -= points;
+            this.score -= points;
 
-        this.wrongAnswers++;
+            this.wrongAnswers++;
+
+        }
 
     }
 

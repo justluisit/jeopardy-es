@@ -1,7 +1,7 @@
 import { GAME_CONFIG } from "../config.js";
-import { showQuestion } from "./ModalView.js";
+import { showClue } from "./ModalView.js";
 
-export function renderBoard(categories, onQuestionSelected) {
+export function renderBoard(categories, onClueSelected) {
 
     const board = document.getElementById("board");
 
@@ -26,17 +26,17 @@ export function renderBoard(categories, onQuestionSelected) {
     });
 
     // Filas de preguntas
-    const maxQuestions = Math.max(
-        ...categories.map(c => c.questions.length)
+    const maxClues = Math.max(
+        ...categories.map(c => c.clues.length)
     );
 
-    for (let row = 0; row < maxQuestions; row++) {
+    for (let row = 0; row < maxClues; row++) {
 
         categories.forEach(category => {
 
-            const question = category.questions[row];
+            const clue = category.clues[row];
 
-            if (!question) {
+            if (!clue) {
 
                 const empty = document.createElement("div");
 
@@ -48,15 +48,15 @@ export function renderBoard(categories, onQuestionSelected) {
 
             const button = document.createElement("button");
 
-            button.dataset.questionId = question.id;
+            button.dataset.clueId = clue.id;
 
-            button.className = "question";
+            button.className = "clue";
 
-            button.textContent = question.value;
+            button.textContent = clue.value;
 
             button.addEventListener("click", () => {
 
-                onQuestionSelected(question);
+                onClueSelected(clue);
 
             });
 
@@ -70,10 +70,10 @@ export function renderBoard(categories, onQuestionSelected) {
 
 }
 
-export function disableQuestion(questionId){
+export function disableClue(clueId){
 
     const button = document.querySelector(
-        `[data-question-id="${questionId}"]`
+        `[data-clue-id="${clueId}"]`
     );
 
     if(!button){
@@ -88,7 +88,7 @@ export function disableQuestion(questionId){
 export function setBoardEnabled(enabled){
 
     document
-        .querySelectorAll(".question")
+        .querySelectorAll(".clue")
         .forEach(button=>{
 
             button.disabled=!enabled;

@@ -12,9 +12,9 @@ export default class GameModel {
 
         this.currentPlayer = 0;
 
-        this.currentQuestion = null;
+        this.currentClue = null;
 
-        this.usedQuestions = new Set();
+        this.usedClues = new Set();
 
         this.scoreBoard = [];
 
@@ -26,7 +26,7 @@ export default class GameModel {
 
         this.gameReady = false;
 
-        this.answeredQuestions = 0;
+        this.answeredClues = 0;
 
     }
 
@@ -42,21 +42,21 @@ export default class GameModel {
 
     }
 
-    setCurrentQuestion(question){
+    setCurrentClue(clue){
 
-        this.currentQuestion = question;
-
-    }
-
-    markQuestionAsUsed(questionId){
-
-        this.usedQuestions.add(questionId);
+        this.currentClue = clue;
 
     }
 
-    isQuestionUsed(questionId){
+    markClueAsUsed(clueId){
 
-        return this.usedQuestions.has(questionId);
+        this.usedClues.add(clueId);
+
+    }
+
+    isClueUsed(clueId){
+
+        return this.usedClues.has(clueId);
 
     }
 
@@ -115,7 +115,7 @@ export default class GameModel {
 
         player.applyResult(points, isCorrect);
 
-        this.answeredQuestions++;
+        this.answeredClues++;
 
         return true;
 
@@ -128,12 +128,12 @@ export default class GameModel {
     }
     shouldShowLeaderboard(){
 
-        return this.answeredQuestions > 0 &&
-            this.answeredQuestions % 5 === 0;
+        return this.answeredClues > 0 &&
+            this.answeredClues % 5 === 0;
 
     }
     isGameFinished(){
 
-        return this.usedQuestions.size === 35;
+        return this.usedClues.size === 35;
     }
 }

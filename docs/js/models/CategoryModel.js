@@ -6,13 +6,13 @@ export default class CategoryModel {
 
         this.name = data.name;
 
-        this.questions = [];
+        this.clues = [];
 
     }
 
-    addQuestion(question){
+    addClue(clue){
 
-        this.questions.push(question);
+        this.clues.push(clue);
 
     }
 

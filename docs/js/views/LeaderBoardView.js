@@ -16,8 +16,8 @@ export function initializeLeaderboard(onContinue) {
 //export function showLeaderboard(players, answeredQuestions, totalQuestions, isFinal = false) {
 export function showLeaderboard({
     players,
-    answeredQuestions,
-    totalQuestions,
+    answeredClues,
+    totalClues,
     isFinal = false
 }) {
     title.textContent = isFinal
@@ -51,7 +51,7 @@ export function showLeaderboard({
     });
 
     progress.textContent =
-        `Preguntas respondidas: ${answeredQuestions} / ${totalQuestions}`;
+        `Preguntas respondidas: ${answeredClues} / ${totalClues}`;
 
     continueButton.textContent =
         isFinal

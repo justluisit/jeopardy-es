@@ -1,8 +1,8 @@
-import { loadQuestions } from "../services/DataService.js";
+import { loadClues } from "../services/DataService.js";
 import { renderBoard } from "../views/BoardView.js";
-import { GAME_CONFIG, TOTAL_QUESTIONS } from "../config.js";
+import { GAME_CONFIG, TOTAL_CLUES } from "../config.js";
 import { initializeModal, initializeEvaluation, getSelectedPlayerId } from "../views/ModalView.js";
-import { disableQuestion, setBoardEnabled } from "../views/BoardView.js";
+import { disableClue, setBoardEnabled } from "../views/BoardView.js";
 import { getPlayerNames, generatePlayerInputs, 
         hidePlayerSetup } from "../views/PlayerSetupView.js";
 import { initializeLeaderboard, showLeaderboard, closeLeaderboard } from "../views/LeaderboardView.js"; 
@@ -13,16 +13,16 @@ export async function startGame(){
 
     try{
 
-        game = await loadQuestions();
+        game = await loadClues();
 
         renderBoard(
             game.categories,
-            handleQuestionSelected
+            handleClueSelected
         );
 
         document.title = GAME_CONFIG.gameName;
         document.getElementById("subtitle").textContent =
-            "Versión MVP v0.1.0";
+            "Versión MVP v0.2.0";
 
         document.querySelector("h1").textContent =
             GAME_CONFIG.gameName;
@@ -35,7 +35,7 @@ export async function startGame(){
             .getElementById("close-modal")
             .addEventListener("click", closeModal);
 
-        initializeModal(handleQuestionClosed);
+        initializeModal(handleClueClosed);
 
         initializeEvaluation(
             handleCorrectAnswer,
@@ -77,56 +77,56 @@ export async function startGame(){
 
 import {
     showAnswer,
-    showQuestion,
+    showClue,
     closeModal,
     populatePlayers
 } from "../views/ModalView.js";
 
-/*function handleQuestionSelected(question){
+/*function handleClueSelected(clue){
 
-    const selected = findQuestion(
+    const selected = findClue(
         game.categories,
-        question.category,
-        question.value
+        clue.category,
+        clue.value
     );
 
     if (selected) {
 
-        showQuestion(selected);
+        showClue(selected);
 
     }
 
 }*/
 
-function handleQuestionSelected(question) {
+function handleClueSelected(clue) {
 
-    if(game.isQuestionUsed(question.id)){
+    if(game.isClueUsed(clue.id)){
         return;
     }
 
-    game.setCurrentQuestion(question);
+    game.setCurrentClue(clue);
 
     populatePlayers(game.players);
 
-    showQuestion(question);
+    showClue(clue);
 
 }
 
-function handleQuestionClosed(){
+function handleClueClosed(){
 
-    if(!game.currentQuestion){
+    if(!game.currentClue){
         return;
     }
 
-    game.markQuestionAsUsed(
-        game.currentQuestion.id
+    game.markClueAsUsed(
+        game.currentClue.id
     );
 
-    disableQuestion(
-        game.currentQuestion.id
+    disableClue(
+        game.currentClue.id
     );
 
-    game.currentQuestion = null;
+    game.currentClue = null;
 
 }
 
@@ -150,15 +150,15 @@ function handleSaveResult(){
 
     closeModal();
 
-    game.markQuestionAsUsed(
-        game.currentQuestion.id
+    game.markClueAsUsed(
+        game.currentClue.id
     );
 
-    disableQuestion(
-        game.currentQuestion.id
+    disableClue(
+        game.currentClue.id
     );
 
-    game.currentQuestion = null;
+    game.currentClue = null;
 
 }
 
@@ -190,32 +190,32 @@ function processAnswer(isCorrect){
 
         playerId,
 
-        game.currentQuestion.value,
+        game.currentClue.value,
 
         isCorrect
 
     );
 
-    game.markQuestionAsUsed(
-        game.currentQuestion.id
+    game.markClueAsUsed(
+        game.currentClue.id
     );
 
-    disableQuestion(
-        game.currentQuestion.id
+    disableClue(
+        game.currentClue.id
     );
 
     closeModal();
 
-    game.currentQuestion = null;
+    game.currentClue = null;
 
     if(game.shouldShowLeaderboard()){
 
-        const isFinalFlag = game.answeredQuestions >= TOTAL_QUESTIONS;
+        const isFinalFlag = game.answeredClues >= TOTAL_CLUES;
 
         showLeaderboard({
             players: game.getLeaderboard(),
-            answeredQuestions: game.answeredQuestions,
-            totalQuestions: TOTAL_QUESTIONS,
+            answeredClues: game.answeredClues,
+            totalClues: TOTAL_CLUES,
             isFinal: isFinalFlag
         });
 

@@ -21,4 +21,4 @@ export const GAME_CONFIG = {
 };
 
 export const MAX_PLAYERS = 5;
-export const TOTAL_QUESTIONS = 35;
+export const TOTAL_CLUES = 35;

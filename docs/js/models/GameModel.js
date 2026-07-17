@@ -120,4 +120,20 @@ export default class GameModel {
         return true;
 
     }
+    getLeaderboard(){
+
+        return [...this.players]
+            .sort((a, b) => b.score - a.score);
+
+    }
+    shouldShowLeaderboard(){
+
+        return this.answeredQuestions > 0 &&
+            this.answeredQuestions % 5 === 0;
+
+    }
+    isGameFinished(){
+
+        return this.usedQuestions.size === 35;
+    }
 }

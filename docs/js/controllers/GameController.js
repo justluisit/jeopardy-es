@@ -5,6 +5,7 @@ import { initializeModal, initializeEvaluation, getSelectedPlayerId } from "../v
 import { disableQuestion, setBoardEnabled } from "../views/BoardView.js";
 import { getPlayerNames, generatePlayerInputs, 
         hidePlayerSetup } from "../views/PlayerSetupView.js";
+import { initializeLeaderboard, showLeaderboard, closeLeaderboard } from "../views/LeaderboardView.js"; 
 
 let game = null;
 
@@ -40,7 +41,9 @@ export async function startGame(){
             handleCorrectAnswer,
             handleIncorrectAnswer
         );
-        
+
+        initializeLeaderboard(handleContinueLeaderboard);
+
         generatePlayerInputs(3);
 
         document
@@ -204,6 +207,26 @@ function processAnswer(isCorrect){
     closeModal();
 
     game.currentQuestion = null;
+
+    if(game.shouldShowLeaderboard()){
+
+        showLeaderboard(
+            game.getLeaderboard(),
+            game.answeredQuestions,
+            TOTAL_QUESTIONS
+        );
+
+        return;
+
+    }
+
+
+
+}
+
+function handleContinueLeaderboard(){
+
+    closeLeaderboard();
 
 }
 

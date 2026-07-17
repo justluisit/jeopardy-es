@@ -415,6 +415,21 @@ select{
     color:white;
 
 }
+#leaderboard-list{
+    margin:20px 0;
+}
+
+.leaderboard-row{
+
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+
+    border-bottom:1px solid #ddd;
+
+    font-size:1.1rem;
+
+}
 /**********************************************/
 /*************** ANIMACION ********************/
 /**********************************************/

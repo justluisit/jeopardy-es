@@ -32,23 +32,23 @@ export function initializeEvaluation(
 
 }
 
-export function showQuestion(question) {
+export function showClue(clue) {
 
     hideEvaluation();
 
     const modal = document.getElementById("modal");
 
-    document.getElementById("question-value").textContent =
-    `${question.value} puntos`;
+    document.getElementById("clue-value").textContent =
+    `${clue.value} puntos`;
 
-    document.getElementById("question-category").textContent =
-        question.category;
+    document.getElementById("clue-category").textContent =
+        clue.category;
 
-    document.getElementById("question-text").textContent =
-        question.question;
+    document.getElementById("clue-text").textContent =
+        clue.clue;
 
     document.getElementById("answer-text").textContent =
-        question.answer;
+        clue.answer;
 
     document.getElementById("answer-text").style.display =
         "none";

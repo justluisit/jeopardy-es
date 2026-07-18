@@ -1,41 +1,41 @@
 {
   "game": {
     "title": "Jeopardy ES",
-    "version": "0.1.0"
+    "version": "0.2.0"
   },
   "categories": [
     {
       "id": 1,
       "name": "Mundial de Fútbol",
-      "questions": [
+      "clues": [
         {
           "id": 101,
           "value": 100,
-          "question": "¿Qué país ganó el Mundial de 2022?",
+          "clue": "¿Qué país ganó el Mundial de 2022?",
           "answer": "Argentina"
         },
         {
           "id": 102,
           "value": 200,
-          "question": "¿En qué país se jugó el Mundial de 2014?",
+          "clue": "¿En qué país se jugó el Mundial de 2014?",
           "answer": "Brasil"
         },
         {
           "id": 103,
           "value": 300,
-          "question": "¿Cuántos jugadores hay por equipo en el campo?",
+          "clue": "¿Cuántos jugadores hay por equipo en el campo?",
           "answer": "11"
         },
         {
           "id": 104,
           "value": 400,
-          "question": "¿Qué selección ganó el Mundial de 2010?",
+          "clue": "¿Qué selección ganó el Mundial de 2010?",
           "answer": "España"
         },
         {
           "id": 105,
           "value": 500,
-          "question": "¿Quién marcó el gol de la final del Mundial 2010?",
+          "clue": "¿Quién marcó el gol de la final del Mundial 2010?",
           "answer": "Andrés Iniesta"
         }
       ]
@@ -43,35 +43,35 @@
     {
       "id": 2,
       "name": "ISO 8583",
-      "questions": [
+      "clues": [
         {
           "id": 201,
           "value": 100,
-          "question": "¿Qué estándar define mensajes para transacciones con tarjetas?",
+          "clue": "¿Qué estándar define mensajes para transacciones con tarjetas?",
           "answer": "ISO 8583"
         },
         {
           "id": 202,
           "value": 200,
-          "question": "¿Qué campo contiene normalmente el PAN?",
+          "clue": "¿Qué campo contiene normalmente el PAN?",
           "answer": "Campo 2"
         },
         {
           "id": 203,
           "value": 300,
-          "question": "¿Qué significa MTI?",
+          "clue": "¿Qué significa MTI?",
           "answer": "Message Type Indicator"
         },
         {
           "id": 204,
           "value": 400,
-          "question": "¿Qué campo contiene normalmente el código de respuesta?",
+          "clue": "¿Qué campo contiene normalmente el código de respuesta?",
           "answer": "Campo 39"
         },
         {
           "id": 205,
           "value": 500,
-          "question": "¿Qué tipo de mensaje representa el MTI 0200?",
+          "clue": "¿Qué tipo de mensaje representa el MTI 0200?",
           "answer": "Solicitud de transacción financiera"
         }
       ]
@@ -79,35 +79,35 @@
     {
       "id": 3,
       "name": "Gastronomía Ecuador",
-      "questions": [
+      "clues": [
         {
           "id": 301,
           "value": 100,
-          "question": "¿Qué pescado se usa tradicionalmente en el encebollado?",
+          "clue": "¿Qué pescado se usa tradicionalmente en el encebollado?",
           "answer": "Atún"
         },
         {
           "id": 302,
           "value": 200,
-          "question": "¿Cuál es el ingrediente principal del locro de papa?",
+          "clue": "¿Cuál es el ingrediente principal del locro de papa?",
           "answer": "Papa"
         },
         {
           "id": 303,
           "value": 300,
-          "question": "¿Qué bebida caliente típica se prepara con panela y canela?",
+          "clue": "¿Qué bebida caliente típica se prepara con panela y canela?",
           "answer": "Canelazo"
         },
         {
           "id": 304,
           "value": 400,
-          "question": "¿Cómo se llama el bolón preparado con plátano verde?",
+          "clue": "¿Cómo se llama el bolón preparado con plátano verde?",
           "answer": "Bolón de verde"
         },
         {
           "id": 305,
           "value": 500,
-          "question": "¿En qué provincia es tradicional el hornado riobambeño?",
+          "clue": "¿En qué provincia es tradicional el hornado riobambeño?",
           "answer": "Chimborazo"
         }
       ]
@@ -115,35 +115,35 @@
     {
       "id": 4,
       "name": "Dragon Ball",
-      "questions": [
+      "clues": [
         {
           "id": 401,
           "value": 100,
-          "question": "¿Quién creó Dragon Ball?",
+          "clue": "¿Quién creó Dragon Ball?",
           "answer": "Akira Toriyama"
         },
         {
           "id": 402,
           "value": 200,
-          "question": "¿Cómo se llama el hermano mayor de Goku?",
+          "clue": "¿Cómo se llama el hermano mayor de Goku?",
           "answer": "Raditz"
         },
         {
           "id": 403,
           "value": 300,
-          "question": "¿Cuál es el planeta natal de Vegeta?",
+          "clue": "¿Cuál es el planeta natal de Vegeta?",
           "answer": "Planeta Vegeta"
         },
         {
           "id": 404,
           "value": 400,
-          "question": "¿Quién derrota definitivamente a Kid Buu?",
+          "clue": "¿Quién derrota definitivamente a Kid Buu?",
           "answer": "Goku"
         },
         {
           "id": 405,
           "value": 500,
-          "question": "¿Cómo se llama la fusión realizada con los pendientes Kaioshin?",
+          "clue": "¿Cómo se llama la fusión realizada con los pendientes Kaioshin?",
           "answer": "Potara"
         }
       ]
@@ -151,35 +151,35 @@
     {
       "id": 5,
       "name": "Sitcoms 2000",
-      "questions": [
+      "clues": [
         {
           "id": 501,
           "value": 100,
-          "question": "¿Cómo se llama el café de Friends?",
+          "clue": "¿Cómo se llama el café de Friends?",
           "answer": "Central Perk"
         },
         {
           "id": 502,
           "value": 200,
-          "question": "¿En qué ciudad se desarrolla The Office (US)?",
+          "clue": "¿En qué ciudad se desarrolla The Office (US)?",
           "answer": "Scranton"
         },
         {
           "id": 503,
           "value": 300,
-          "question": "¿Cómo se llama el personaje interpretado por Neil Patrick Harris en HIMYM?",
+          "clue": "¿Cómo se llama el personaje interpretado por Neil Patrick Harris en HIMYM?",
           "answer": "Barney Stinson"
         },
         {
           "id": 504,
           "value": 400,
-          "question": "¿Qué profesión tiene Sheldon Cooper?",
+          "clue": "¿Qué profesión tiene Sheldon Cooper?",
           "answer": "Físico teórico"
         },
         {
           "id": 505,
           "value": 500,
-          "question": "¿Cómo se llama el mejor amigo de J.D. en Scrubs?",
+          "clue": "¿Cómo se llama el mejor amigo de J.D. en Scrubs?",
           "answer": "Turk"
         }
       ]
@@ -187,35 +187,35 @@
     {
       "id": 6,
       "name": "Emo 2000",
-      "questions": [
+      "clues": [
         {
           "id": 601,
           "value": 100,
-          "question": "¿Qué banda interpreta 'Helena'?",
+          "clue": "¿Qué banda interpreta 'Helena'?",
           "answer": "My Chemical Romance"
         },
         {
           "id": 602,
           "value": 200,
-          "question": "¿Qué grupo interpreta 'The Kill'?",
+          "clue": "¿Qué grupo interpreta 'The Kill'?",
           "answer": "Thirty Seconds to Mars"
         },
         {
           "id": 603,
           "value": 300,
-          "question": "¿Quién es el vocalista de Fall Out Boy?",
+          "clue": "¿Quién es el vocalista de Fall Out Boy?",
           "answer": "Patrick Stump"
         },
         {
           "id": 604,
           "value": 400,
-          "question": "¿Qué banda lanzó 'Face Down'?",
+          "clue": "¿Qué banda lanzó 'Face Down'?",
           "answer": "The Red Jumpsuit Apparatus"
         },
         {
           "id": 605,
           "value": 500,
-          "question": "¿Qué banda interpreta 'Cute Without the E'?",
+          "clue": "¿Qué banda interpreta 'Cute Without the E'?",
           "answer": "Taking Back Sunday"
         }
       ]
@@ -223,35 +223,35 @@
     {
       "id": 7,
       "name": "Geografía Ecuador",
-      "questions": [
+      "clues": [
         {
           "id": 701,
           "value": 100,
-          "question": "¿Cuál es la capital del Ecuador?",
+          "clue": "¿Cuál es la capital del Ecuador?",
           "answer": "Quito"
         },
         {
           "id": 702,
           "value": 200,
-          "question": "¿En qué provincia se encuentra Cuenca?",
+          "clue": "¿En qué provincia se encuentra Cuenca?",
           "answer": "Azuay"
         },
         {
           "id": 703,
           "value": 300,
-          "question": "¿Cuál es el volcán más alto del Ecuador?",
+          "clue": "¿Cuál es el volcán más alto del Ecuador?",
           "answer": "Chimborazo"
         },
         {
           "id": 704,
           "value": 400,
-          "question": "¿Qué archipiélago pertenece al Ecuador en el océano Pacífico?",
+          "clue": "¿Qué archipiélago pertenece al Ecuador en el océano Pacífico?",
           "answer": "Galápagos"
         },
         {
           "id": 705,
           "value": 500,
-          "question": "¿Cuál es la montaña más cercana al Sol debido al abultamiento ecuatorial de la Tierra?",
+          "clue": "¿Cuál es la montaña más cercana al Sol debido al abultamiento ecuatorial de la Tierra?",
           "answer": "Chimborazo"
         }
       ]

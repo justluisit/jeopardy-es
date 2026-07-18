@@ -68,7 +68,7 @@ h1{
 }
 
 
-.question{
+.clue{
 
     height:75px;
 
@@ -88,7 +88,7 @@ h1{
 
 }
 
-.question:hover:not(:disabled){
+.clue:hover:not(:disabled){
 
     transform:scale(1.04);
 
@@ -96,7 +96,7 @@ h1{
 
 }
 
-.question.used{
+.clue.used{
 
     background:#333;
 
@@ -104,7 +104,7 @@ h1{
 
 }
 
-#question-value{
+#clue-value{
 
     text-align:center;
 
@@ -204,12 +204,12 @@ main{
 
 }
 
-.question:disabled{
+.clue:disabled{
 
     pointer-events:none;
 
 }
-#question-text{
+#clue-text{
 
     font-size:1.35rem;
 

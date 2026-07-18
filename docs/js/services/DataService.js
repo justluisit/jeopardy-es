@@ -1,8 +1,8 @@
 import GameModel from "../models/GameModel.js";
 import CategoryModel from "../models/CategoryModel.js";
-import QuestionModel from "../models/QuestionModel.js";
+import ClueModel from "../models/ClueModel.js";
 
-export async function loadQuestions(){
+export async function loadClues(){
 
     const response = await fetch("./data/questions.json");
 
@@ -18,14 +18,14 @@ export async function loadQuestions(){
 
 }
 
-function buildQuestions(categories) {
+function buildClues(categories) {
 
     categories.forEach(category => {
 
-        category.questions = category.questions.map(question => {
+        category.clues = category.clues.map(clue => {
 
-            return new QuestionModel({
-                ...question,
+            return new ClueModel({
+                ...clue,
                 categoryId: category.id
             });
 
@@ -46,17 +46,17 @@ function buildGame(data){
 
         const category = new CategoryModel(categoryData);
 
-        categoryData.questions.forEach(questionData=>{
+        categoryData.clues.forEach(clueData=>{
 
-            const question = new QuestionModel({
+            const clue = new ClueModel({
 
-                ...questionData,
+                ...clueData,
 
                 categoryId: category.id
 
             });
 
-            category.addQuestion(question);
+            category.addClue(clue);
 
         });
 
